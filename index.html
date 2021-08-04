@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Muncheez: The Food Place</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="https://images.unsplash.com/photo-1531423976301-98315b46c5a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80" type="image/jpg">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            html,body{
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                background: rgb(71, 142, 146);
+                overflow-x: hidden;
+                position: relative;
+            }
+            .navigation{
+                position: sticky;
+                top:0;
+                left:0;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: 2px solid rgb(21,58,60);
+            }
+            .navigation div{
+                background: rgb(21,58,60);
+                padding:    1%;
+                font-family: 'Monoton', cursive;
+                color: #f5f5f5;
+            }
+            .navigation div.rightColor{
+                background: 
+                            linear-gradient(301deg, rgba(21,58,60,1) 52%, 
+                            rgba(0,212,255,1) 97%);
+            }
+            .navigation div.logo{
+                flex-basis: 50%; 
+                text-align: center;
+            }
+            .navigation div.navHome{
+                flex-basis: 10%;
+            }
+            .navigation div.navMenu{
+                flex-basis: 10%;
+            }
+            .navigation div.navGallery{
+                flex-basis: 10%;
+            }
+            .navigation div.navReviews{
+                flex-basis: 10%;
+            }
+            .navigation div.navVisitUs{
+                flex-basis: 10%;
+            }
+            .navigation div a{
+                text-decoration: none;
+                color: white;
+            }
+            .navigation div.rightColor:hover{
+                background-image: none;
+                background-color: rgba(21,58,60,1);
+            }
+            #HOME{
+                display: flex;
+            }
+            #HOME div.FOOD{
+                flex-basis: 100%;
+                height: 700px;
+                flex-shrink: 1;
+                background-image: 
+                                    url(https://images.unsplash.com/photo-1477617722074-45613a51bf6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);
+                background-size: cover;
+                font-family: 'Monoton', cursive;
+                text-align: center;
+                font-size: 58px;
+                padding: 10%;
+                color: #f5f5f5;
+                border-bottom: 2px solid rgb(21,58,60);
+            }
+            #MENU{
+                display: flex;
+                flex-wrap: wrap;
+                font-family: 'Monoton', cursive;
+            }
+            #MENU div.menuHeading{
+                flex-basis: 100%;
+                text-align: center;
+                color: #f5f5f5;
+                font-size: 50px;
+                padding: 2%;
+                border-bottom: 2px solid rgb(21,58,60);
+            }
+            #MENU div.menuImage{
+                flex-basis: 70%;
+                max-width: 800px;
+                flex-shrink: 1;
+                height: 510px;
+                max-height: 506px;
+                background: 
+                                    url(https://images.jdmagicbox.com/phagwara/q1/9999p1824.1824.131220171511.e7q1/menu/0a4a588ae1e99d16e18d757bae092a62.jpg) no-repeat;
+                background-size: contain;
+                border: 5px solid rgb(21, 58, 60);
+                border-radius: 6%;
+                margin: 50px auto;
+                transition: 0.5s;
+            }
+            #MENU div.menuImage:hover{
+                background-image:
+                                     url(https://content1.jdmagicbox.com/phagwara/q1/9999p1824.1824.131220171511.e7q1/menu/80c01104b8a4dd83c361bf482a125356.jpg);
+                background-size: contain;
+                height: 600px;
+                max-height: 590px;
+            }
+            #GALLERY{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Monoton', cursive;
+            }
+            #GALLERY div.galleryHeading{
+                flex-basis: 100%;
+                text-align: center;
+                color: #f5f5f5;
+                font-size: 50px;
+                padding: 2%;
+                border-bottom: 2px solid rgb(21,58,60);
+                border-top: 2px solid rgb(21,58,60);
+                margin: 2px auto;
+            }
+            #GALLERY .GIMG{
+                padding: 0 2% 1% 0;
+            }
+            #GALLERY div IMG{
+                width: 420px;
+                height: 500px;
+            }
+            #review{
+                display: flex;
+                flex-wrap: wrap;   
+            }
+            #review div.reviewHeading{
+                font-family: 'Monoton', cursive;
+                flex-basis: 100%;
+                text-align: center;
+                color: #f5f5f5;
+                font-size: 50px;
+                padding: 2%;
+                border-bottom: 2px solid rgb(21,58,60);
+                border-top: 2px solid rgb(21,58,60);
+                margin: 2px auto;
+            }
+            #review div.firstReview{
+                flex-basis: 30%;
+                margin: 20px auto;
+                border: 2px solid rgb(21,58,60);
+                background-color: #f5f5f5;
+                font-family: 'Roboto', sans-serif;
+            }
+            #review div.firstReview .author{
+                width: 15%;
+                height: 60px;
+                border: 1px solid rgb(21, 58, 60);
+                border-radius: 50%;
+                margin: 1% auto;
+                padding: 10%;
+                background-image: url(https://www.w3schools.com/w3images/avatar2.png);
+                background-size: cover;
+            }
+            #review div.firstReview .authorName{
+                text-align: center;
+                font-weight: bold;
+            }
+            #review div.secondReview{
+                flex-basis: 30%;
+                margin: 20px auto;
+                border: 2px solid rgb(21,58,60);
+                background-color: #f5f5f5;
+                font-family: 'Roboto', sans-serif;
+            }
+            #review div.secondReview .author{
+                width: 15%;
+                height: 60px;
+                border: 1px solid rgb(21, 58, 60);
+                border-radius: 50%;
+                margin: 1% auto;
+                padding: 10%;
+                background-image: url(https://www.w3schools.com/howto/img_avatar2.png);
+                background-size: cover;
+            }
+            #review div.secondReview .authorName{
+                text-align: center;
+                font-weight: bold;
+            }
+            #review div.thirdReview{
+                flex-basis: 30%;
+                margin: 20px auto;
+                border: 2px solid rgb(21,58,60);
+                background-color: #f5f5f5;
+                font-family: 'Roboto', sans-serif;
+            }
+            #review div.thirdReview .author{
+                width: 15%;
+                height: 60px;
+                border: 1px solid rgb(21, 58, 60);
+                border-radius: 50%;
+                margin: 1% auto;
+                padding: 10%;
+                background-image: 
+                                    url(https://www.w3schools.com/howto/img_avatar.png    );
+                background-size: cover;
+            }
+            #review div.thirdReview .authorName{
+                text-align: center;
+                font-weight: bold;
+            }
+            #visitUs{
+                display: flex;
+                flex-wrap: wrap;
+                font-family: 'Monoton', cursive;
+            }
+            #visitUs div.visitHeading{
+                flex-basis: 100%;
+                text-align: center;
+                color: #f5f5f5;
+                font-size: 50px;
+                padding: 2%;
+                border-bottom: 2px solid rgb(21,58,60);
+                border-top: 2px solid rgb(21,58,60);
+                margin: 2px auto;
+            }
+            #visitUs div.map{
+                margin: 50px auto;
+            }
+            #visitUs div.map iframe{
+                height: 600px;
+                width: 800px;
+            }
+            @media(max-width: 1250px){
+                #GALLERY IMG{
+                    max-width: 420px;
+                    max-height: 420px;
+                }
+            } 
+            @media(max-width: 888px){
+                #GALLERY IMG{
+                    max-width: 300px;
+                    max-height: 300px;
+                }
+                #visitUs div.map iframe{
+                    height: 450px;
+                    width: 600px;
+                }
+                #review div.firstReview{
+                    flex-basis: 45%;
+                }
+                #review div.secondReview{
+                    flex-basis: 45%;
+                }
+                #review div.thirdReview{
+                    flex-basis: 45%;
+                }
+            }
+            @media(max-width: 600px){
+                #visitUs div.map iframe{
+                    height: 300px;
+                    width: 400px;
+                }
+                #review div.firstReview{
+                    flex-basis: 51%;
+                }
+                #review div.secondReview{
+                    flex-basis: 51%;
+                }
+                #review div.thirdReview{
+                    flex-basis: 51%;
+                }
+            }
+            @media(max-width: 400px){
+                #visitUs div.map iframe{
+                    height: 150px;
+                    width: 200px;
+                }
+                #review div.firstReview .author{
+                    width: 40%;
+                }
+                #review div.secondReview .author{
+                    width: 40%;
+                }
+                #review div.thirdReview .author{
+                    width: 40%;
+                }
+            }
+            @media(max-width: 1190px){
+
+                .navigation div.logo{
+                    flex-basis: 50%; 
+                    text-align: center;
+                }
+                .navigation div.navHome{
+                    flex-basis: 25%;
+                }
+                .navigation div.navMenu{
+                    flex-basis: 25%;
+                }
+                .navigation div.navGallery{
+                    flex-basis: 34%;
+                }
+                .navigation div.navReviews{
+                    flex-basis: 33%;
+                }
+                .navigation div.navVisitUs{
+                    flex-basis: 33%;
+                }
+                #MENU div.menuImage{
+                    max-width: 500px;
+                    max-height: 319px;
+                }
+                #MENU div.menuImage:hover{
+                    max-width: 500px;
+                    max-height: 370.370371px;
+                }
+            }
+            @media(max-width: 720px){
+                #MENU div.menuImage{
+                    max-width: 294px;
+                    max-height: 190px;
+                }
+                #MENU div.menuImage:hover{
+                    max-width: 300px;
+                    max-height: 222.22222px;
+                }
+            }
+            @media(max-width: 500px){
+                #HOME div.FOOD{
+                    font-size: 40px;
+                }
+                #MENU div.menuImage{
+                    max-width: 200px;
+                    max-height: 130px;
+                }
+                #MENU div.menuImage:hover{
+                    max-width: 200px;
+                    max-height: 148.148148px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navigation">
+            <div class="logo">
+                <p>MUNCHEEZ</p>
+            </div>
+            <div class="navHome rightColor">
+                <a href="#HOME"><p>Home</p></a>
+            </div>
+            <div class="navMenu rightColor">
+                <a href="#MENU"><p>Menu</p></a>
+            </div>
+            <div class="navGallery rightColor">
+                <a href="#GALLERY"><p>Gallery</p></a>
+            </div>
+            <div class="navReviews rightColor">
+                <a href="#review"><p>Reviews</p></a>
+            </div>
+            <div class="navVisitUs rightColor">
+                <a href="#visitUs"><p>Visit us!</p></a>
+            </div>
+        </div>
+       <div id="HOME">
+           <div class="FOOD">
+                Nothing brings people together like good food...
+           </div>
+       </div> 
+       <div id="MENU">
+            <div class="menuHeading">
+                OUR MENU
+            </div>
+            <div class="menuImage">
+
+            </div>
+       </div>   
+       <div id="GALLERY">
+            <div class="galleryHeading">
+                FOOD GALLERY
+            </div>
+            <div class="burgerImage GIMG">
+                <img src="https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80" alt="Special Burger">
+            </div>
+            <div class="loadedFriesImage GIMG">
+                <img src="https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80" alt="Loaded Fries">
+            </div>
+            <div class="pizzaImage GIMG">
+                <img src="https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" alt="Pizza">
+            </div>
+            <div class="shakeImage GIMG">
+                <img src="https://images.unsplash.com/photo-1553787499-6f9133860278?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Shake">
+            </div>
+            <div class="sandwichImage GIMG">
+                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80" alt="Grilled Sandwich">
+            </div>
+            <div class="mojitoImage GIMG">
+                <img src="https://images.unsplash.com/photo-1541745038731-f1c2b5a1a49e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=399&q=80" alt="Mojito">
+            </div>
+       </div>
+       <div id="review">
+           <div class="reviewHeading">
+               Featured Reviews
+           </div>
+           <div class="firstReview">
+                <div class="author">
+
+                </div>
+                <hr>
+                <div class="authorName">
+                    Lorem Ipsum
+                </div>
+                <hr>
+                <div class="reviewContent">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur commodi, perspiciatis facere hic illo, rem odio dolores, non placeat minima labore similique! Adipisci unde molestias corporis expedita excepturi nobis?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nisi, cum at recusandae dolorem provident quaerat voluptatum adipisci nihil ex, incidunt qui alias ut quasi iusto quam mollitia, consectetur suscipit.   
+                </div>
+           </div>
+           <div class="secondReview">
+                <div class="author">
+
+                </div>
+                <hr>
+                <div class="authorName">
+                    Lorem Ipsum
+                </div>
+                <hr>
+                <div class="reviewContent">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur commodi, perspiciatis facere hic illo, rem odio dolores, non placeat minima labore similique! Adipisci unde molestias corporis expedita excepturi nobis?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nisi, cum at recusandae dolorem provident quaerat voluptatum adipisci nihil ex, incidunt qui alias ut quasi iusto quam mollitia, consectetur suscipit.   
+                </div>
+           </div>
+           <div class="thirdReview">
+                <div class="author">
+
+                </div>
+                <hr>
+                <div class="authorName">
+                    Lorem Ipsum
+                </div>
+                <hr>
+                <div class="reviewContent">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur commodi, perspiciatis facere hic illo, rem odio dolores, non placeat minima labore similique! Adipisci unde molestias corporis expedita excepturi nobis?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nisi, cum at recusandae dolorem provident quaerat voluptatum adipisci nihil ex, incidunt qui alias ut quasi iusto quam mollitia, consectetur suscipit.   
+                </div>
+           </div>
+       </div>
+       <div id="visitUs">
+            <div class="visitHeading">
+                VISIT US!
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.1559048877075!2d75.76979151514311!3d31.216409781471288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391af4dd2bc9ffc1%3A0x37f67a5ed0b0c4f4!2sMuncheez%20The%20Food%20Place%20%7C%20Fastfood%20Restaurant!5e0!3m2!1sen!2sin!4v1628078248948!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+       </div>
+    </body>
+</html>
